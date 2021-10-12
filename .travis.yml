@@ -1,0 +1,8 @@
+sudo: required
+services:
+  - docker
+before_install:
+  - docker build -t itamar/docker-react -f Dockerfile.dev .
+
+script:
+  - docker run itamar/docker-react npm run test -- --coverage
